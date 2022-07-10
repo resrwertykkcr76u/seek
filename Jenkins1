@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+   
+    }
+    stages {
+        stage("Git Checkout") {
+            steps {
+            
+            git credentialsId: 'final', url: 'https://github.com/resrwertykkcr76u/seek.git'
+                
+            }
+        }
+        stage("Maven Build") {
+            steps {
+                sh "mvn clean package" 
+                
+            }
+        }
+        stage("deploy-dev")
+{
+steps{
+        sshagent(['switch']) {
+            sh """
+            scp -o StrictHostKeyChecking=no target/seek.war ec2-user@172.31.43.197 :/home/ec2-user/apache-tomcat-9.0.64/webapps/
+            ssh ec2-user@172.31.43.197 /home/ec2-user/apache-tomcat-9.0.64/bin/shutdown.sh
+            ssh ec2-user@172.31.43.197 /home/ec2-user/apache-tomcat-9.0.64/bin/startup.sh
+           
+"""
+            }
+        }
+    }
+}
+
+}
