@@ -13,6 +13,8 @@ pipeline {
             steps {
                 sh "mvn clean package"
                 
+                sh "mv target/* .war target/seek.war"
+                
             }
         }
         stage("deploy-dev")
@@ -20,7 +22,7 @@ pipeline {
 steps{
         sshagent(['switch']) {
             sh """
-            scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.43.197:/home/ec2-user/apache-tomcat-9.0.64/webapps/
+            scp -o StrictHostKeyChecking=no target/seek.war ec2-user@172.31.43.197:/home/ec2-user/apache-tomcat-9.0.64/webapps/
             ssh ec2-user@172.31.43.197 /home/ec2-user/apache-tomcat-9.0.64/bin/shutdown.sh
             ssh ec2-user@172.31.43.197 /home/ec2-user/apache-tomcat-9.0.64/bin/startup.sh
            
