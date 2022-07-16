@@ -1,0 +1,41 @@
+ clear
+      sudo apt-get update
+ 
+     sudo apt-get upgrade
+    
+     sudo apt install zip unzip
+    
+     sudo apt install apache2
+  
+    sudo service apache2 restart
+    sudo service apache2 status
+ 
+    sudo apt install mysql-server
+
+    sudo mysql_secure_installation
+    sudo apt install phpmyadmin
+   
+     sudo nano /etc/apache2/apache2.conf(Include /etc/phpmyadmin/apache2/apache.conf)   
+ sudo apt update
+     sudo apt-get upgrade
+
+    sudo service apache2 restart
+    sudo service apache2 status
+
+   sudo mysql
+ 
+    sudo apt install php libapache2-mod-php php-mbstring php-xmlrpc php-soap php-gd php-xml php-cli php-zip php-bcmath php-tokenizer php-json php-pear php-mysql php-gettext php-curl php-memcached php-xdebug php-intl php-fpm php-pgsql php-imap
+ sudo apt-get update
+    sudo apt-get upgrade
+    sudo service apache2 restart
+     sudo service apache2 status
+   clear
+   38  sudo chown -R ubuntu /var/www/html
+   39  cd /
+   40  cd var
+   41  cd www
+   42  cd html
+   43  unzip LaravelAuth-Learn-master
+   44  clear
+   45  sudo chmod -R 777 storage
+   46  history
