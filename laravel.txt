@@ -12,7 +12,7 @@
  
     sudo apt install mysql-server
 
-    sudo mysql_secure_installation
+    sudo mysql_secure_installation(yynny)
     sudo apt install phpmyadmin
    
      sudo nano /etc/apache2/apache2.conf(Include /etc/phpmyadmin/apache2/apache.conf)   
